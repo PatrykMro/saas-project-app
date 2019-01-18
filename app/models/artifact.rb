@@ -9,6 +9,8 @@ class Artifact < ApplicationRecord
 
   validate :uploaded_fize_size
 
+  private
+
   def uploaded_fize_size
     if upload
       errors.add(:upload, "File size must be less than #{self.class::MAX_FILESIZE}") unless upload.size <= self.class::MAX_FILESIZE
